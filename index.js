@@ -115,7 +115,9 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-
+let newOne = {name: "Jello", Rating: 8, feedback: "It was aight"};
+  reviews.push(newOne);
+  console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -124,7 +126,13 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
+for(let i = 0; i < reviews.length; i++)
+{
+  if (reviews[i].name === "Reyna"){
+    reviews[i].feedback += " this place is chill with really cool people, great for getting work done on weekdays";
+  }
+}
+console.log(reviews);
 
 
 
@@ -140,7 +148,7 @@ Use the getReviewByIndex function below to do the following:
 
 
 function getReviewByIndex(arr, index) {
-  return arr[index].name + " gave the restaurant a " + arr[index].rating +  " star review, and their feedback was: " + arr[index].feedback;
+  return `${arr[index].name} gave the restaurant a ${arr[index].rating} star review, and their feedback was: ${arr[index].feedback}`;
 }
 
 
@@ -159,7 +167,7 @@ Use the getLastReview function below to do the following:
 
 
 function getLastReview(arr) {
-  return arr[arr.length -1].name + " gave the restaurant a " + arr[arr.length -1].rating +  " star review, and their feedback was: " + arr[arr.length - 1].feedback;
+  return `${arr[arr.length-1].name} gave the restaurant a ${arr[arr.length -1].rating} star review, and their feedback was: ${arr[arr.length-1].feedback}`;
 } 
 
 
@@ -180,9 +188,22 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+function getReviewByRating(arrName, score) 
+ {
+   let newArr = [];
+    for(let i = 0; i < arrName.length; i++)
+    {
+      if(arrName[i].rating === score || arrName[i].rating >= score && arrName[i].rating <= score + .9)
+      {
+        newArr.push(arrName[i]);
+      }
+    }
+  return newArr;
+  
   }
+
+  console.log(getReviewByRating(reviews, 4));
+
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -198,10 +219,18 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+  const longArr = [];
+
+  for(let i = 0; i < arr.length; i++)
+  {
+    if (arr[i].feedback.split(' ').length > 15)
+    {
+      longArr.push(arr[i]);
+    }
   }
-  
+   return longArr;
+  }
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
