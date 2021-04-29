@@ -250,10 +250,23 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
+function carMaker(milesDriven, distanceTraveled) {
+  const carObject = {
+    odometer: milesDriven,
+    drive :function(distanceTraveled)
+    {
+      carObject.odometer += distanceTraveled;
+      return carObject.odometer;
+    },
     
+   
+    
+  }
+   return (carObject.drive(distanceTraveled))
 }
+
+
+console.log(carMaker(10, 40))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
